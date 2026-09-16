@@ -1,29 +1,37 @@
-from modules.functions import StudentManager
+
+from models.HinhChuNhat import HinhChuNhat
+from models.NhanVien import NhanVien
+from models.Oto import Oto
+from models.TaiKhoanNganHang import TaiKhoanNganHang
+
 def main_menu():
-    manager = StudentManager()
+    # Bai 1
 
-    while True:
-        print("\n===== HỆ THỐNG QUẢN LÝ SINH VIÊN =====")
-        print("1. Xem danh sach sinh vien")
-        print("2. Them sinh vien")
-        print("3. Tim kiem sinh vien")
-        print("4. Xoa sinh vien")
-        print("5. Thoat chuong trinh\n")
-        choice = input("Lua chon cua ban (1-5): ")
+    hcn1 = HinhChuNhat(5, 3)
+    hcn2 = HinhChuNhat(10, 4)
+    print(f"{hcn1.tinh_dien_tich()}")
+    print(f"{hcn2.tinh_dien_tich()}")
 
-        if choice == '1':
-            manager.show_all_students()
-        elif choice == '2':
-            manager.add_student()
-        elif choice == '3':
-            manager.find_student_by_id()
-        elif choice == '4':
-            manager.delete_student()
-        elif choice == '5':
-            print("Dang thoat chuong trinh")
-            break
-        else:
-            print("Khong hop le")
+    # Bai 3
 
+    nv1 = NhanVien("Khang", "10000000")
+    nv2= NhanVien("Duong", "8000000")
+    print(f"{nv1.cong_ty}_{nv1.ten}_{nv1.luong}")
+    print(f"{nv2.cong_ty}_{nv2.ten}_{nv2.luong}")
+
+    # Bai 4
+
+    p = TaiKhoanNganHang("Khang", 5000)
+    p.nap_tien(1000000)
+    p.xem_so_du()
+
+    # Bai 5
+
+    xeVinfast = Oto()
+    print(f"{xeVinfast.so_banh_xe}")
+
+    xeVinfast.so_banh_xe = 3
+    print(f"{xeVinfast.so_banh_xe}")
+    
 if __name__ == "__main__":
     main_menu()
